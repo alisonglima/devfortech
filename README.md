@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="devfortech" title="#delicinha" src=".github/devfortech.png" width="250px" />
+    <img alt="devfortech" title="#delicinha" src=".github/logo.png" width="250px" />
 </h1>
 
 <h4 align="center">
