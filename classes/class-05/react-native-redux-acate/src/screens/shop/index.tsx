@@ -28,7 +28,7 @@ const Shop = () => {
               <View style={styles.addCartButtonContainer}>
                 <Button title="adicionar" onPress={() => alert("Adicionado")}></Button>
               </View>
-              <View style={styles.addCartButtonContainer}>
+              <View style={styles.removeCartButtonContainer}>
                 <Button title="remover" onPress={() => alert("Removido")}></Button>
               </View>
             </View>
