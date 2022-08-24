@@ -4,8 +4,7 @@ export const products: IProduct[] = [
   {
     id: 1,
     name: "Iphone 13 Pro Max",
-    image:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-max-silver-select?wid=940&hei=1112&fmt=png-alpha&.v=1645552346280",
+    image: "https://assets.stickpng.com/images/61d2f85b92b57c0004c64745.png",
     brand: "Apple",
     price: 6999,
     inStock: true,

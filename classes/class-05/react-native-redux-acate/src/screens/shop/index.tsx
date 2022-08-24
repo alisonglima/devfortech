@@ -14,7 +14,9 @@ const Shop = () => {
           <View key={item.id} style={styles.card}>
             <Image source={{ uri: item.image }} style={styles.image} />
             <View style={styles.infoBox}>
-              <Text style={styles.productName}>{item.name}</Text>
+              <Text style={styles.productName} numberOfLines={1}>
+                {item.name}
+              </Text>
               <Text style={styles.brandName}>{item.brand}</Text>
               <Text style={styles.price}>
                 {Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
@@ -22,9 +24,13 @@ const Shop = () => {
                 )}
               </Text>
             </View>
-            <View>
-              <Button title="adicionar" onPress={() => alert("Adicionado")}></Button>
-              <Button title="remover" onPress={() => alert("Removido")}></Button>
+            <View style={styles.buttonsContainer}>
+              <View style={styles.addCartButtonContainer}>
+                <Button title="adicionar" onPress={() => alert("Adicionado")}></Button>
+              </View>
+              <View style={styles.addCartButtonContainer}>
+                <Button title="remover" onPress={() => alert("Removido")}></Button>
+              </View>
             </View>
           </View>
         ))}

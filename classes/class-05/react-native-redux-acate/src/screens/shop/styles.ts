@@ -10,21 +10,21 @@ export default StyleSheet.create({
     padding: 12,
     margin: 8,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     borderRadius: 12,
   },
   image: {
     height: 100,
     width: 100,
-    marginLeft: 0,
   },
   infoBox: {
-    margin: 8,
+    flex: 1,
   },
   productName: {
     fontSize: 16,
     fontWeight: "bold",
+    width: 120,
   },
   brandName: {
     fontSize: 12,
@@ -33,10 +33,11 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  addCart: {
-    color: "#000",
+  addCartButtonContainer: {
+    paddingVertical: 4,
   },
-  removeCart: {
-    color: "#000",
+  removeCartButtonContainer: {},
+  buttonsContainer: {
+    justifyContent: "center",
   },
 });
