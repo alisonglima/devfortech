@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "redux",
-    "slug": "redux",
+    "name": "rn-redux-devfortech",
+    "slug": "rn-redux-devfortech",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
