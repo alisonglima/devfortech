@@ -18,9 +18,13 @@ const cartData = createSlice({
     addNewItem: (state: ICart, action: PayloadAction<IProduct>) => {
       state.cart = [...state.cart, action.payload];
     },
+    removeItem: (state: ICart, action: PayloadAction<number>) => {
+      state.cart.splice(action.payload, 1);
+      state.cart = state.cart;
+    },
   },
 });
 
-export const { addNewItem } = cartData.actions;
+export const { addNewItem, removeItem } = cartData.actions;
 export const cartStateData = (state: RootState) => state.cartData.cart;
 export default cartData.reducer;

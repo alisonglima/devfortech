@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+const { width, height } = Dimensions.get("window");
 
 export default StyleSheet.create({
   container: {
@@ -8,23 +9,24 @@ export default StyleSheet.create({
     justifyContent: "flex-end",
     padding: 5,
   },
-  contentCart: {
-    backgroundColor: "#000540",
-    borderRadius: 100,
-    height: 20,
-    width: 20,
-    padding: 2,
+  cartButton: {
+    zIndex: 1,
+    width: "100%",
+    alignItems: "flex-end",
   },
   modal: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
+    width: width,
+    height: height,
     alignItems: "center",
     backgroundColor: "#fff",
   },
-  textContentCart: {
-    color: "#fff",
-    textAlign: "center",
-    fontSize: 15,
+  cartEmptyMessage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

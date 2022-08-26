@@ -1,15 +1,24 @@
-import { Modal, Text, TouchableOpacity, View } from "react-native";
-import { useSelector } from "react-redux";
-import { AntDesign } from "@expo/vector-icons";
+import { useState } from "react";
+import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
-import { cartStateData } from "../../store/modules/cart/reducer";
+import { cartStateData, removeItem } from "../../store/modules/cart/reducer";
+
+import Card from "../card";
 
 import styles from "./styles";
-import { useState } from "react";
+import { IProduct } from "../../types";
+import CartModalButton from "./cartModalButton";
 
 const Cart = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const cart = useSelector(cartStateData);
+
+  const dispatch = useDispatch();
+
+  const removeCartItem = (item: IProduct, index: number) => {
+    dispatch(removeItem(index));
+  };
 
   return (
     <View style={styles.container}>
@@ -18,34 +27,35 @@ const Cart = () => {
         visible={showModal}
         onRequestClose={() => setShowModal(!showModal)}
       >
-        <View style={styles.modal}>
-          <TouchableOpacity onPress={() => setShowModal(!showModal)}>
-            <AntDesign name="shoppingcart" size={32} color="black" />
-            <Text>Fechar</Text>
-          </TouchableOpacity>
+        <SafeAreaView style={styles.modal}>
+          <View style={styles.cartButton}>
+            <CartModalButton
+              setShowModal={setShowModal}
+              cartLength={cart.length}
+              variation="close"
+            />
+          </View>
 
           {cart.length > 0 ? (
-            <View>
-              {cart.map((item) => (
-                <View key={item.id}>
-                  <Text>{item.name}</Text>
-                </View>
+            <ScrollView>
+              {cart.map((item, index) => (
+                <Card
+                  item={item}
+                  key={index}
+                  cardKey={index}
+                  icon="minus"
+                  action={removeCartItem}
+                />
               ))}
-            </View>
+            </ScrollView>
           ) : (
-            <View>
-              <Text>Adicione itens ao seu carrinho</Text>
+            <View style={styles.cartEmptyMessage}>
+              <Text>Adicione itens ao seu carrinho.</Text>
             </View>
           )}
-        </View>
+        </SafeAreaView>
       </Modal>
-      <TouchableOpacity onPress={() => setShowModal(!showModal)}>
-        <AntDesign name="shoppingcart" size={32} color="black" />
-      </TouchableOpacity>
-
-      <View style={styles.contentCart}>
-        <Text style={styles.textContentCart}>{cart.length}</Text>
-      </View>
+      <CartModalButton setShowModal={setShowModal} cartLength={cart.length} variation="open" />
     </View>
   );
 };
