@@ -18,8 +18,22 @@ export default function App() {
       <ReduxProvider store={store}>
         <NavigationContainer>
           <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Favorites" component={Favorites} />
+            <Tab.Screen
+              name="Home"
+              component={Home}
+              options={{
+                tabBarIcon: ({ focused, color }) => <Feather name="home" color={color} size={24} />,
+              }}
+            />
+            <Tab.Screen
+              name="Favorites"
+              component={Favorites}
+              options={{
+                tabBarIcon: ({ focused, color }) => (
+                  <Feather name="heart" color={color} size={24} />
+                ),
+              }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       </ReduxProvider>
