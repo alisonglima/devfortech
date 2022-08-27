@@ -31,7 +31,6 @@ function Card({ character, favKey }: ICardProps) {
       <Image source={{ uri: character.image }} style={styles.image} />
       <View style={styles.characterDescription}>
         <Text style={styles.text}>{`${character.name}`}</Text>
-        <Text style={styles.text}>{`${character.gender}`}</Text>
       </View>
       <View style={styles.favoriteButton}>
         <TouchableOpacity onPress={() => handleClickFavoriteButton()}>
